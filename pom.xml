@@ -67,7 +67,7 @@
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <plexus-component-metadata.version>2.1.1</plexus-component-metadata.version>
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.14</nexus-staging-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.5.0</central-publishing-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -338,6 +338,18 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-metadata</artifactId>
+                <version>${plexus-component-metadata.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-metadata</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>${maven-gpg-plugin.version}</version>
@@ -352,27 +364,16 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>sonatype</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <deploymentName>prefer-minimum-maven-plugin</deploymentName>
+                    <autoPublish>true</autoPublish>
+                    <checksums>required</checksums>
+                    <publishingServerId>central</publishingServerId>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.plexus</groupId>
-                <artifactId>plexus-component-metadata</artifactId>
-                <version>${plexus-component-metadata.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate-metadata</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
