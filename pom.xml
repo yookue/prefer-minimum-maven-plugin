@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.mavenplugin</groupId>
     <artifactId>prefer-minimum-maven-plugin</artifactId>
-    <version>3.8.6</version>
+    <version>3.8.7</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.artifactId}</name>

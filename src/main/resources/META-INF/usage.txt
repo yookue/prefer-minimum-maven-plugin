@@ -1,5 +1,5 @@
 
-# Prefer Minimum for Maven Mojo
+# Prefer Minimum for Maven Plugin
 # Usage "mvn com.yookue.mavenplugin:prefer-minimum-maven-plugin:help"
 # See "https://maven.apache.org/plugins/maven-resources-plugin/examples/custom-resource-filters.html"
 # ===================================================================================================
