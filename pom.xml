@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.mavenplugin</groupId>
     <artifactId>prefer-minimum-maven-plugin</artifactId>
-    <version>3.8.5</version>
+    <version>3.8.6</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.artifactId}</name>
@@ -61,7 +61,7 @@
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.6.2</maven-javadoc-plugin.version>
         <maven-plugin-plugin.version>3.6.4</maven-plugin-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
@@ -276,7 +276,7 @@
                     <locale>en_US</locale>
                     <notimestamp>true</notimestamp>
                     <quiet>true</quiet>
-                    <skip>true</skip>
+                    <skip>false</skip>
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -369,7 +369,7 @@
                 <version>${central-publishing-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <deploymentName>prefer-minimum-maven-plugin</deploymentName>
+                    <deploymentName>${project.artifactId}</deploymentName>
                     <autoPublish>true</autoPublish>
                     <checksums>required</checksums>
                     <publishingServerId>central</publishingServerId>
