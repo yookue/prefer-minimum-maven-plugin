@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.mavenplugin</groupId>
     <artifactId>prefer-minimum-maven-plugin</artifactId>
-    <version>3.8.7</version>
+    <version>3.9.8</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.artifactId}</name>
@@ -50,21 +50,21 @@
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
         <commons-io.version>2.16.1</commons-io.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
-        <jsr305.version>3.0.2</jsr305.version>
-        <maven.version>3.8.5</maven.version>
-        <maven-filtering.version>3.2.0</maven-filtering.version>
-        <maven-plugin-annotations.version>3.6.4</maven-plugin-annotations.version>
-        <plexus-utils.version>3.4.2</plexus-utils.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <jakarta-annotation.version>2.1.1</jakarta-annotation.version>
+        <maven.version>3.9.8</maven.version>
+        <maven-filtering.version>3.3.2</maven-filtering.version>
+        <maven-plugin-annotations.version>3.13.1</maven-plugin-annotations.version>
+        <plexus-utils.version>4.0.1</plexus-utils.version>
 
-        <javadoc-docent-maven-plugin.version>1.8.0</javadoc-docent-maven-plugin.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.6.2</maven-javadoc-plugin.version>
+        <javadoc-docent-maven-plugin.version>1.8.3</javadoc-docent-maven-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-install-plugin.version>3.1.2</maven-install-plugin.version>
+        <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
         <maven-plugin-plugin.version>3.6.4</maven-plugin-plugin.version>
-        <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <plexus-component-metadata.version>2.1.1</plexus-component-metadata.version>
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
         <central-publishing-maven-plugin.version>0.5.0</central-publishing-maven-plugin.version>
@@ -82,9 +82,9 @@
             <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>${jsr305.version}</version>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta-annotation.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -149,6 +149,10 @@
                     <artifactId>commons-io</artifactId>
                 </exclusion>
                 <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
+                <exclusion>
                     <groupId>org.eclipse.sisu</groupId>
                     <artifactId>org.eclipse.sisu.inject</artifactId>
                 </exclusion>
@@ -179,46 +183,6 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
-            <version>${maven.version}</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.enterprise</groupId>
-                    <artifactId>cdi-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-lang3</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.annotation</groupId>
-                    <artifactId>javax.annotation-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.maven</groupId>
-                    <artifactId>maven-artifact</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.maven</groupId>
-                    <artifactId>maven-model</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.plexus</groupId>
-                    <artifactId>plexus-classworlds</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.plexus</groupId>
-                    <artifactId>plexus-component-annotations</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.plexus</groupId>
-                    <artifactId>plexus-utils</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
             <version>${plexus-utils.version}</version>
@@ -238,9 +202,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>${maven-install-plugin.version}</version>
-                <configuration>
-                    <createChecksum>true</createChecksum>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -19,8 +19,6 @@ package com.yookue.mavenplugin.preferminimum.filter;
 
 import java.util.Collections;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -35,6 +33,8 @@ import org.codehaus.plexus.logging.AbstractLogEnabled;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationException;
 import org.sonatype.plexus.build.incremental.BuildContext;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 
 /**
@@ -50,7 +50,7 @@ public class MinimumResourceFilter extends AbstractLogEnabled implements MavenRe
      * The value is {@code "preferMinimumResourceFilter"}
      */
     static final String FILTER_NAME = "preferMinimumResourceFilter";    // $NON-NLS-1$
-    private final DefaultMavenResourcesFiltering resourceFilter = new DefaultMavenResourcesFiltering();
+    private DefaultMavenResourcesFiltering resourceFilter;
 
     @Requirement
     private BuildContext buildContext;
@@ -60,8 +60,7 @@ public class MinimumResourceFilter extends AbstractLogEnabled implements MavenRe
 
     @Override
     public void initialize() throws InitializationException {
-        resourceFilter.enableLogging(getLogger());
-        resourceFilter.initialize();
+        resourceFilter = new DefaultMavenResourcesFiltering(fileFilter, buildContext);
         try {
             FieldUtils.writeDeclaredField(resourceFilter, "buildContext", buildContext, true);    // $NON-NLS-1$
             FieldUtils.writeDeclaredField(resourceFilter, "mavenFileFilter", fileFilter, true);    // $NON-NLS-1$

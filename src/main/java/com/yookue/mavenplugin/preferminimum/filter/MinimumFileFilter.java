@@ -19,16 +19,17 @@ package com.yookue.mavenplugin.preferminimum.filter;
 
 import java.io.File;
 import java.util.List;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.shared.filtering.DefaultMavenFileFilter;
+import org.apache.maven.shared.filtering.FilterWrapper;
 import org.apache.maven.shared.filtering.MavenFileFilter;
 import org.apache.maven.shared.filtering.MavenFilteringException;
-import org.apache.maven.shared.utils.io.FileUtils.FilterWrapper;
 import org.codehaus.plexus.component.annotations.Component;
+import org.sonatype.plexus.build.incremental.BuildContext;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 
 /**
@@ -47,8 +48,12 @@ public class MinimumFileFilter extends DefaultMavenFileFilter {
     private static final String DOT_MIN = ".min";    // $NON-NLS-1$
     private static final String HYPHEN_MIN = "-min";    // $NON-NLS-1$
 
+    public MinimumFileFilter(@Nonnull BuildContext context) {
+        super(context);
+    }
+
     @Override
-    public void copyFile(@Nonnull File from, @Nonnull File to, boolean filtering, @Nonnull List<FilterWrapper> filterWrappers, @Nullable String encoding, boolean overwrite) throws MavenFilteringException {
+    public void copyFile(@Nonnull File from, @Nonnull File to, boolean filtering, @Nonnull List<FilterWrapper> filterWrappers, @Nullable String encoding) throws MavenFilteringException {
         boolean copyFile = true;
         String extension = FilenameUtils.getExtension(from.getName());
         if (from.isFile() && StringUtils.equalsAnyIgnoreCase(extension, "js", "css")) {    // $NON-NLS-1$ // $NON-NLS-2$
@@ -65,7 +70,7 @@ public class MinimumFileFilter extends DefaultMavenFileFilter {
             }
         }
         if (copyFile) {
-            super.copyFile(from, to, filtering, filterWrappers, encoding, overwrite);
+            super.copyFile(from, to, filtering, filterWrappers, encoding);
         } else {
             FileUtils.deleteQuietly(to);
         }
