@@ -31,7 +31,6 @@ import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.component.annotations.Requirement;
 import org.codehaus.plexus.logging.AbstractLogEnabled;
 import org.codehaus.plexus.personality.plexus.lifecycle.phase.Initializable;
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.InitializationException;
 import org.sonatype.plexus.build.incremental.BuildContext;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -59,7 +58,7 @@ public class MinimumResourceFilter extends AbstractLogEnabled implements MavenRe
     private MavenFileFilter fileFilter;
 
     @Override
-    public void initialize() throws InitializationException {
+    public void initialize() {
         resourceFilter = new DefaultMavenResourcesFiltering(fileFilter, buildContext);
         try {
             FieldUtils.writeDeclaredField(resourceFilter, "buildContext", buildContext, true);    // $NON-NLS-1$
