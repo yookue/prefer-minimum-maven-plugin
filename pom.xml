@@ -22,7 +22,7 @@
 
     <groupId>com.yookue.mavenplugin</groupId>
     <artifactId>prefer-minimum-maven-plugin</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.artifactId}</name>
@@ -49,8 +49,8 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <commons-io.version>2.18.0</commons-io.version>
-        <commons-lang3.version>3.17.0</commons-lang3.version>
+        <commons-io.version>[2.18.0,)</commons-io.version>
+        <commons-lang3.version>[3.17.0,)</commons-lang3.version>
         <jakarta-annotation.version>2.1.1</jakarta-annotation.version>
         <maven.version>3.9.9</maven.version>
         <maven-filtering.version>3.4.0</maven-filtering.version>
@@ -74,12 +74,12 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>[${commons-io.version},)</version>
+            <version>${commons-io.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>[${commons-lang3.version},)</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.annotation</groupId>
@@ -291,7 +291,6 @@
                     <links>
                         <link>https://commons.apache.org/proper/commons-io/apidocs</link>
                         <link>https://commons.apache.org/proper/commons-lang/apidocs</link>
-                        <link>https://codehaus-plexus.github.io/plexus-containers/plexus-container-default/apidocs</link>
                         <link>https://maven.apache.org/plugins/maven-resources-plugin/apidocs</link>
                         <link>https://maven.apache.org/shared/maven-filtering/apidocs</link>
                     </links>
