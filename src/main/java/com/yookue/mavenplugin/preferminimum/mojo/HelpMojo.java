@@ -30,10 +30,10 @@ import org.apache.maven.plugins.annotations.Mojo;
 /**
  * Displays help information for plugin
  *
- * @see org.apache.maven.plugins.resources.HelpMojo
+ * @see "org.apache.maven.plugins.resources.HelpMojo"
  */
 @Mojo(name = "help", requiresProject = false, threadSafe = true)
-@SuppressWarnings({"unused", "JavadocReference"})
+@SuppressWarnings("unused")
 public class HelpMojo extends AbstractMojo {
     private static final String HELP_FILE_PATH = "META-INF/usage.txt";    // $NON-NLS-1$
 
