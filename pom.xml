@@ -49,8 +49,8 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <commons-io.version>[2.18.0,)</commons-io.version>
-        <commons-lang3.version>[3.17.0,)</commons-lang3.version>
+        <commons-io.version>2.18.0</commons-io.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
         <jakarta-annotation.version>2.1.1</jakarta-annotation.version>
         <maven.version>3.9.9</maven.version>
         <maven-filtering.version>3.4.0</maven-filtering.version>
