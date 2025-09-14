@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Yookue Ltd. All rights reserved.
+ * Copyright (c) 2021 Unikue Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yookue.mavenplugin.preferminimum.filter;
+package cn.unikue.mavenplugin.preferminimum.filter;
 
 
 import java.io.File;
@@ -36,6 +36,7 @@ import jakarta.annotation.Nullable;
  * Packages minimum css/js files instead of original ones
  *
  * @see org.apache.maven.shared.filtering.DefaultMavenFileFilter
+ *
  * @reference "https://github.com/aperto/sourceurl-resourcefilter"
  */
 @Component(role = MavenFileFilter.class, hint = MinimumFileFilter.FILTER_NAME, description = "Packages minimum css/js files instead of original ones")

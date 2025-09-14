@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Yookue Ltd. All rights reserved.
+ * Copyright (c) 2021 Unikue Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yookue.mavenplugin.preferminimum.filter;
+package cn.unikue.mavenplugin.preferminimum.filter;
 
 
 import java.util.Collections;
@@ -40,6 +40,7 @@ import jakarta.annotation.Nullable;
  * Packages minimum css/js resources instead of original ones
  *
  * @see org.apache.maven.shared.filtering.DefaultMavenResourcesFiltering
+ *
  * @reference "https://maven.apache.org/plugins/maven-resources-plugin/examples/custom-resource-filters.html"
  */
 @Component(role = MavenResourcesFiltering.class, hint = MinimumResourceFilter.FILTER_NAME, description = "Packages minimum css/js resources instead of original ones")

@@ -1,6 +1,6 @@
 
 # Prefer Minimum for Maven Plugin
-# Usage "mvn com.yookue.mavenplugin:prefer-minimum-maven-plugin:help"
+# Usage "mvn cn.unikue.mavenplugin:prefer-minimum-maven-plugin:help"
 # See "https://maven.apache.org/plugins/maven-resources-plugin/examples/custom-resource-filters.html"
 # ===================================================================================================
 <project>
@@ -17,7 +17,7 @@
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <groupId>com.yookue.mavenplugin</groupId>
+                        <groupId>cn.unikue.mavenplugin</groupId>
                         <artifactId>prefer-minimum-maven-plugin</artifactId>
                         <version>LATEST</version>
                     </dependency>
