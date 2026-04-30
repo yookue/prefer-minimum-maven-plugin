@@ -22,7 +22,7 @@
 
     <groupId>cn.unikue.mavenplugin</groupId>
     <artifactId>prefer-minimum-maven-plugin</artifactId>
-    <version>4.1.0</version>
+    <version>4.1.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>${project.artifactId}</name>
@@ -49,16 +49,16 @@
         <project.build.resourceEncoding>${file.encoding}</project.build.resourceEncoding>
         <project.reporting.outputEncoding>${file.encoding}</project.reporting.outputEncoding>
 
-        <commons-io.version>2.20.0</commons-io.version>
+        <commons-io.version>2.22.0</commons-io.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
         <jakarta-annotation.version>2.1.1</jakarta-annotation.version>
-        <maven.version>3.9.9</maven.version>
-        <maven-filtering.version>3.4.0</maven-filtering.version>
-        <maven-plugin-annotations.version>3.15.1</maven-plugin-annotations.version>
+        <maven.version>3.9.15</maven.version>
+        <maven-filtering.version>3.5.0</maven-filtering.version>
+        <maven-plugin-annotations.version>3.15.2</maven-plugin-annotations.version>
         <plexus-utils.version>4.0.2</plexus-utils.version>
 
-        <javadoc-docent-maven-plugin.version>2.1.0</javadoc-docent-maven-plugin.version>
-        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <javadoc-docent-maven-plugin.version>2.1.2</javadoc-docent-maven-plugin.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven-install-plugin.version>3.1.4</maven-install-plugin.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>
@@ -67,7 +67,7 @@
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <plexus-component-metadata.version>2.2.0</plexus-component-metadata.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
-        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -242,6 +242,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                        <arg>-Xlint:unchecked</arg>
+                    </compilerArgs>
                     <excludes>
                         <exclude>**/._*</exclude>
                     </excludes>
